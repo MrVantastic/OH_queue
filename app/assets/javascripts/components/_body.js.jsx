@@ -69,7 +69,12 @@ class Body extends React.Component {
                 this.addNewFruit(fruit)
             })
             .then(()=> {console.log(this.state.fruits)})
+    }
 
+    addNewFruit(fruit){
+        this.setState({
+            fruits: this.state.fruits.concat(fruit)
+        })
     }
 
     handleDelete(id) {
@@ -91,11 +96,6 @@ class Body extends React.Component {
         })
     }
 
-    addNewFruit(fruit){
-        this.setState({
-            fruits: this.state.fruits.concat(fruit)
-        })
-    }
 
     componentDidMount(){
         fetch('/api/v1/fruits.json')
